@@ -1,0 +1,44 @@
+
+body
+{
+	font-family: 'Ubuntu', 'sans-serif';
+	font-size: 16px;
+	font-weight: 300;
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+code
+{
+	font-family: 'Ubuntu mono', monospace;
+	background-color: #eee;
+	margin: -2px;
+	padding: 2px;
+}
+
+strong
+{
+	font-weight: 500;
+}
+
+section
+{
+	border-left: 2px solid;
+	margin-left: -2px;
+	padding-left: 2px;
+}
+
+#js-worker-output
+{
+	border: 1px solid #eee;
+}
+#js-worker-output p
+{
+	margin: 0;
+	line-height: 1.5rem;
+}
+#js-worker-output p:nth-child(even)
+{
+	background-color: #eee;
+}

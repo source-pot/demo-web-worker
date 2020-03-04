@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="urf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<title>Web Workers demo</title>
+	</head>
+	<body>
+		<h1>Javascript Web Worker demo</h1>
+		<section>
+			<p>Web workers are brilliant things that run in a separate thread to the main javascript execution so your front end can stay snappy while any heavy lifting takes place in the background.</p>
+			<p>This does come with some limitations - Web Workers cannot access the <code>DOM</code>, <code>document</code>, <code>localStorage</code>, or <code>sessionStorage</code>. (TODO: find out exactly what Web Workers cannot do)</p>
+
+			<p>In this example, we're going to use Web Workers (several, simultaneously) to sort some data for us in the background.  We'll send the same big list of numbers to each worker and when they've finished sorting they'll send the sorted list back, where we'll terminate them.</p>
+		</section>
+
+		<section>
+			<button type="button" id="js-start-workers">Start working</button>
+			<div id="js-worker-output">After clicking the button above, some output will appear here</div>
+		</section>
+
+		<script src="app.js"></script>
+	</body>
+</html>
