@@ -13,17 +13,29 @@ body
 	line-height: 1.5rem;
 
 	background-color: #fff;
-	border-radius: 1rem;
 
-	max-width: 640px;
-	margin: 1rem auto;
-	padding: 1rem;
+	max-width: 760px;
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 1rem 0;
 
-	box-shadow: #888 10px 10px 25px;
+	box-shadow: #888 0 0 25px;
+}
+
+nav,header,section,footer,pre
+{
+	padding: 0 1rem;
+}
+
+footer
+{
+	padding-bottom: 1rem;
+	font-size: 0.8rem;
 }
 
 nav
 {
+	padding-top: 1rem;
 	display: grid;
 	grid-template-columns: repeat(3,auto);
 }
@@ -58,10 +70,19 @@ nav a
 	text-decoration: none;
 }
 
-code
+pre
+{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	overflow-y: auto;
+}
+pre, code
 {
 	font-family: 'Ubuntu mono', monospace;
 	background-color: #eee;
+}
+code
+{
 	margin: -2px;
 	padding: 2px;
 }
@@ -91,6 +112,12 @@ button:hover:not(:disabled)
 	background-color: #eee;
 }
 
+.breakout
+{
+	margin-left: -1rem;
+	margin-right: -1rem;
+}
+
 #js-output
 {
 	background-color: #444;
@@ -106,4 +133,9 @@ button:hover:not(:disabled)
 #js-output li:nth-child(even)
 {
 	background-color: #555;
+}
+
+a[target="_blank"]::after
+{
+	content: ' (external)';
 }
