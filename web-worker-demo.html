@@ -9,19 +9,31 @@
 		<title>Web Workers demo</title>
 	</head>
 	<body>
+		<nav>
+			<span class="left"><a class="button" href="/">Rob Watson</a></span>
+			<span class="middle"></span>
+			<span class="right"><a href="/javascript">Javascript</a></span>
+		</nav>
+
 		<h1>Javascript Web Worker demo</h1>
 		<section>
+			<h4><span>Introduction</span></h4>
 			<p>Web workers are brilliant things that run in a separate thread to the main javascript execution so your front end can stay snappy while any heavy lifting takes place in the background.</p>
 			<p>This does come with some limitations - Web Workers cannot access the <code>DOM</code>, <code>document</code>, <code>localStorage</code>, or <code>sessionStorage</code>. (TODO: find out exactly what Web Workers cannot do)</p>
-
-			<p>In this example, we're going to use Web Workers (several, simultaneously) to sort some data for us in the background.  We'll send the same big list of numbers to each worker and when they've finished sorting they'll send the sorted list back, where we'll terminate them.</p>
 		</section>
 
 		<section>
+			<h4><span>Demonstration</span></h4>
+			<p>In this example, we're going to use Web Workers (several, simultaneously) to sort some data for us in the background.  We'll send the same big list of numbers to each worker and when they've finished sorting they'll send the sorted list back, where we'll terminate them.  Worker-1 does a bubble sort which is a very slow sorting method, Worker-2 does a quicksort which seems to be the faster, and Worker-3 does a selection sort (miles quicker than the bubble sort, but slower than the quicksort).</p>
+
 			<button type="button" id="js-start-workers">Start working</button>
-			<div id="js-worker-output">After clicking the button above, some output will appear here</div>
+			<ol id="js-output">Output from the Demo will appear here</ol>
 		</section>
 
-		<script src="app.js"></script>
+		<section>
+			<h4><span>The Code</span></h4>
+		</section>
+
+		<script src="web-worker-demo.js"></script>
 	</body>
 </html>
