@@ -1,7 +1,6 @@
 
 onmessage = function( {data} )
 {
-	console.log( 'sort-1 starting' );
 	sort( data );
 }
 
