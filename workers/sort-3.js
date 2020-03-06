@@ -1,6 +1,5 @@
 
-onmessage = function( {data} )
-{
+onmessage = ( {data} ) => {
 	sort( data );
 }
 
@@ -11,8 +10,7 @@ onmessage = function( {data} )
  * We do this repeatedly, incrementing (i) then finding the lowest number in the list again,
  * until there are no more items to check (when (i) is final element in the list)
  */
-function sort( list )
-{
+const sort = ( list ) => {
 	// sort the list and return it to the client
 	for( let i = 0; i < list.length; i++ )
 	{

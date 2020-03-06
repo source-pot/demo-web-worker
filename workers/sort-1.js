@@ -1,7 +1,5 @@
 
-
-onmessage = function( {data} )
-{
+onmessage = ( {data} ) => {
 	sort( data );
 }
 
@@ -10,8 +8,7 @@ onmessage = function( {data} )
  * One of the most basic sorts, we compare each item with the next item, if it's larger we swap them.
  * We do this repeatedly for all items until 1 complete pass over the list results in no items swapping places.
  */
-function sort( list )
-{
+const sort = ( list ) => {
 	// sort the list and return it to the client
 	let changed = true;
 	do

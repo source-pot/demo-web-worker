@@ -1,6 +1,5 @@
 
-onmessage = function( {data} )
-{
+onmessage =  ( {data} ) => {
 	sort( data );
 }
 
@@ -12,8 +11,7 @@ onmessage = function( {data} )
  * We check each item in turn and move it from the unsorted partition to
  * the correct place in the sorted partition until the sorted partition is empty
  */
-function sort( list )
-{
+const sort = ( list ) => {
 	// sort the list and return it to the client
 	for( let i = 0; i < list.length; i++ )
 	{
