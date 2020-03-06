@@ -1,10 +1,15 @@
 
+
 onmessage = function( {data} )
 {
 	sort( data );
 }
 
-// bubble sort
+/**
+ * Bubble sort.
+ * One of the most basic sorts, we compare each item with the next item, if it's larger we swap them.
+ * We do this repeatedly for all items until 1 complete pass over the list results in no items swapping places.
+ */
 function sort( list )
 {
 	// sort the list and return it to the client
