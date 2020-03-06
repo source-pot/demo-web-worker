@@ -1,12 +1,61 @@
 
+html
+{
+	background-color: #eee;
+	min-height: 100vh;
+}
+
 body
 {
 	font-family: 'Ubuntu', 'sans-serif';
 	font-size: 16px;
 	font-weight: 300;
-	max-width: 600px;
-	margin: 0 auto;
+	line-height: 1.5rem;
+
+	background-color: #fff;
+	border-radius: 1rem;
+
+	max-width: 640px;
+	margin: 1rem auto;
 	padding: 1rem;
+
+	box-shadow: #888 10px 10px 25px;
+}
+
+nav
+{
+	display: grid;
+	grid-template-columns: repeat(3,auto);
+}
+nav .left
+{
+	text-align: left;
+}
+nav .left a
+{
+	margin-right: 1rem;
+}
+nav .middle
+{
+	text-align: center;
+}
+nav .middle span
+{
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+nav .right
+{
+	text-align: right;
+}
+nav .right a
+{
+	margin-left: 1rem;
+}
+nav a
+{
+	border-bottom: 1px solid;
+	text-decoration: none;
 }
 
 code
@@ -22,23 +71,39 @@ strong
 	font-weight: 500;
 }
 
-section
+h4 span
 {
-	border-left: 2px solid;
-	margin-left: -2px;
-	padding-left: 2px;
+	border-bottom: 1px solid;
 }
 
-#js-worker-output
+button
 {
-	border: 1px solid #eee;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	background: transparent;
+	transition: all 0.3s;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
 }
-#js-worker-output p
-{
-	margin: 0;
-	line-height: 1.5rem;
-}
-#js-worker-output p:nth-child(even)
+button:hover:not(:disabled)
 {
 	background-color: #eee;
+}
+
+#js-output
+{
+	background-color: #444;
+	color: #fff;
+	padding: 1rem;
+}
+#js-output li
+{
+	padding-left: 0.5rem;
+	margin-left: 1.5rem;
+	list-style-position: outside;
+}
+#js-output li:nth-child(even)
+{
+	background-color: #555;
 }
