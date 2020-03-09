@@ -27,10 +27,16 @@ nav,header,section,footer,pre
 	padding: 0 1rem;
 }
 
+header
+{
+	border-bottom: 1px solid #ddd;
+}
+
 footer
 {
 	padding-bottom: 1rem;
 	font-size: 0.8rem;
+	border-top: 1px solid #ddd;
 }
 
 nav
@@ -137,5 +143,5 @@ button:hover:not(:disabled)
 
 a[target="_blank"]::after
 {
-	content: ' (external)';
+	content: ' [^]';
 }
