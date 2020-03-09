@@ -6,7 +6,7 @@
 		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
 		<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:ital,wght@0,300;0,500;1,300;1,500&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<title>Web Workers demo</title>
+		<title>Javascript Web Worker demo</title>
 	</head>
 	<body>
 		<nav>
@@ -15,7 +15,10 @@
 			<span class="right"><a href="/javascript">Javascript</a></span>
 		</nav>
 
-		<h1>Javascript Web Worker demo</h1>
+		<header>
+			<h1>Javascript Web Worker demo</h1>
+		</header>
+
 		<section>
 			<h4><span>Introduction</span></h4>
 			<p>Web workers are brilliant things that run in a separate thread to the main javascript execution so your front end can stay snappy while any heavy lifting takes place in the background.</p>
@@ -27,12 +30,55 @@
 			<p>In this example, we're going to use Web Workers (several, simultaneously) to sort some data for us in the background.  We'll send the same big list of numbers to each worker and when they've finished sorting they'll send the sorted list back, where we'll terminate them.  Worker-1 does a bubble sort which is a very slow sorting method, Worker-2 does a quicksort which seems to be the faster, and Worker-3 does a selection sort (miles quicker than the bubble sort, but slower than the quicksort).</p>
 
 			<button type="button" id="js-start-workers">Start working</button>
-			<ol id="js-output">Output from the Demo will appear here</ol>
+			<ol class="breakout" id="js-output">Output from the Demo will appear here</ol>
 		</section>
 
 		<section>
 			<h4><span>The Code</span></h4>
+			<p>First, in the client/app script, we'll create a Worker:</p>
+			<pre class="breakout">const worker = new Worker( 'path/to/worker-script.js' );
+
+worker.onmessage = ( event ) => {
+  // handle messages passed FROM the worker TO the client here
+  const message = event.data;  // this is the actual message passed in
+}
+
+let message = 'Hello from the client';
+worker.postMessage( message );</pre>
+			<p>
+				The <code>postMessage</code> function is how we send data or message TO the worker.
+				Something to be aware of is that whatever you pass in is COPIED in to the Worker's thread, not passed by reference (like objects between functions).  This essentially means you get some thread-safety built in as you can't concurrently effect the same object, but it does mean that the browser uses more memory as data is duplicated when sending.  Working with large sets of data means you'll almost certainly be holding twice as much memory for the whole lot unless you get really sneaky.
+			</p>
+			<p>
+				The onmessage handler is how we receive message back from the Worker. As you'll see shortly, the Worker can send a message to the client using its own <code>postMessage</code> function so we need to be able to capture it here.
+			</p>
+			<p>
+				Now we'll look at the code in the Worker to complete the functionality
+			</p>
+			<pre class="breakout">onmessage = ( event ) => {
+  const message = event.data;  // this is the actual message
+}
+
+let message = 'Hello from the Worker';
+postMessage( message );</pre>
+			<p>
+				As you can see, it's pretty straightforward and similar to the client's code.  However, as this script is loaded in and run in the Worker's scope, the <code>onmessage</code> function is already defined so we're overwriting it with out implementation above (writing <code>function onmessage() { ... }</code> doesn't work).
+			</p>
 		</section>
+
+		<section>
+			<h4><span>Further reading</span></h4>
+			<p>Mozilla Developer Network has some great resources:
+			<ul>
+				<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank">Web Workers API</a></li>
+				<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank">Using Web Workers (MDN)</a></li>
+			</ul>
+			<p>As does Google is you ask it nicely</p>
+		</section>
+
+		<footer>
+			<p>Please feel free to use the code here and/or any ideas mentioned - spread the word that the Internet and Web Development is great!</p>
+		</footer>
 
 		<script src="web-worker-demo.js"></script>
 	</body>
